@@ -1,12 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+  <HelloWorld msg="Peliculas"/>
+  
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
+  data (){
+    return {
+      movies: [
+        {
+          name: "Thor Love & Thunder",
+          available: 10,
+          quantity: 0
+        },
+        {
+          name: "Minions",
+          available: 50,
+          quantity: 0
+        }
+      ]
+    }
+  },
   name: 'App',
   components: {
     HelloWorld
