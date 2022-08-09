@@ -8,22 +8,6 @@
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  data (){
-    return {
-      movies: [
-        {
-          name: "Thor Love & Thunder",
-          available: 10,
-          quantity: 0
-        },
-        {
-          name: "Minions",
-          available: 50,
-          quantity: 0
-        }
-      ]
-    }
-  },
   name: 'App',
   components: {
     HelloWorld
