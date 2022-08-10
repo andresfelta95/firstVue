@@ -1,16 +1,22 @@
 
 <template>
-  <h1>Movies</h1>
+  <h2>Movies</h2>
   <form v-for="movie in movies" :key="movie.name">
     <h3>{{movie.name}}</h3>
+
     <picture>
       <img :src="movie.source" :alt="movie.name">
     </picture>
+
+    <p> Lenght : {{movie.length}}</p>
+
     <div>
       <button type="button" v-on:click="movie.quantity -=1" :disabled="movie.quantity <= 0">-</button>
       {{movie.quantity}}
       <button type="button" v-on:click="movie.quantity +=1" :disabled="movie.quantity >= movie.available">+</button>
     </div>
+    
+    <a :href="movie.trailer" target="_blank">▶️ Trailer</a>
   </form>
 </template>
 
@@ -24,13 +30,25 @@ export default {
           name: "Thor Love & Thunder",
           available: 10,
           quantity: 0,
-          source: require('../assets/ThorLT.png')
+          source: require('../assets/ThorLT.png'),
+          length: "1h 59min",
+          trailer: 'https://youtu.be/Go8nTmfrQd8'
         },
         {
           name: "Minions",
-          available: 50,
+          available: 5,
           quantity: 0,
-          source: require('../assets/MinionsTheRiseofGru.png')
+          source: require('../assets/MinionsTheRiseofGru.png'),
+          length: "1h 27min",
+          trailer: 'https://youtu.be/6DxjJzmYsXo'
+        },
+        {
+          name: "DC League of Super-Pets",
+          available: 8,
+          quantity: 0,
+          source: require('../assets/DCLeague.png'),
+          length: "1h 45min",
+          trailer: 'https://youtu.be/1jkw2JPCl18'
         }
       ]
     }
@@ -40,17 +58,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h2{
-    border-bottom: 1px solid white;
-    color: white;
-    padding-bottom: 10px;
-}
+
 h3{
     color: brown;
 }
 
 form{
-    background-color: gray;
+    background-color: black;
     border: 1px solid white;
     border-radius: 10px;
     margin: 0 50px 25px;
@@ -72,6 +86,7 @@ button{
     padding: 5px 10px;
     cursor: pointer;
     transition: border-color 0.1s;
+    font-size: large;
 }
 
 button:hover{
